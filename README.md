@@ -13,9 +13,9 @@ Adds CSS, Sass and LESS compilation to [Launch.js](https://github.com/launchjs/a
 - Mix and match SASS, LESS and regular CSS - without conflicts!
 - CSS modules - your classes are hashed automatically, to avoid namespace clashes
 - Compatible with Foundation, Bootstrap, Material and more. Simply configure via a `.global.(css|less|s(c|a)ss)` import to preserve class names
-* Hot reloading + sourcemaps in development
+- Hot reloading + sourcemaps in development
 - Creates a single `assets/css/styles.css` file (`assets/css/styles.[contenthash].css` in production)
-* Easy referencing via SSR at `output.client.mainCss`
+- Easy referencing via SSR at `output.client.mainCss`
 
 **TODO**
 
