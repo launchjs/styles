@@ -31,8 +31,14 @@ describe("src/styles.ts", () => {
     const styles = new Styles();
 
     const baseConfig = getBaseConfig(app);
-    const config = styles.getLaunchConfig(baseConfig, app);
+    const config = styles.initLaunchJs(baseConfig, app);
 
+    // Should have loaders for CSS, SASS and LESS (local + globals)
     expect(config.client.config.module.rules.length).toBeGreaterThan(6);
+
+    // Find plain .css to test on
+    const css = config.client.config.module.rules.find(r => String(r.test) === "/^(?!.*\\.global\\.css$).*\\.css$/");
+
+    // TODO
   });
 });
