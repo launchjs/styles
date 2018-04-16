@@ -119,6 +119,14 @@ interface IPostCSSConfig {
 }
 ``` 
 
+## Gotchas
+
+[Mini-CSS-Extract](https://github.com/webpack-contrib/mini-css-extract-plugin) doesn't play nicely with [style-loader](https://github.com/webpack-contrib/style-loader) at present, so [css-hot-loader](https://github.com/shepherdwind/css-hot-loader) was chosen instead.
+
+One side-effect of that choice is that the resulting `style.css` file _must_ be included in the initial HTML loaded by the browser via SSR. Unlike style-loader, css-hot-loader doesn't 'inject' styles in the resulting Javascript bundle; it simply reloads any `.css` loaded into the DOM when its file changes.
+
+Therefore, you must include a `<link rel="stylesheet" type="text/css" href="${output.client.mainCss}">` in your server-side render if you want hot-reloading to work properly.
+
 ## License
 
 MIT
