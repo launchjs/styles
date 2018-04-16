@@ -6,13 +6,15 @@ Adds CSS, Sass and LESS compilation to [Launch.js](https://github.com/launchjs/a
 
 ## Features
 
-* CSS, Sass and Less compilation.
-* Universal - importing styles works in the browser and with server-side rendering
-* Use a mix of any style - creates a single `assets/css/styles.css` file (`assets/css/styles.[contenthash].css` in production)
-* Uses [PostCSS](http://postcss.org/) with [CSSNext](http://cssnext.io/) and [CSSNano](http://cssnano.co/) by default
+- Universal - works in the browser and via server-side rendering
+- [PostCSS v6](http://postcss.org/) with [next-gen CSS](http://cssnext.io/) and [CSSNano](http://cssnano.co/)
+- [SASS](http://sass-lang.com) and [LESS](http://lesscss.org/) support (also parsed through PostCSS)
+- Automatic vendor prefixing - write modern CSS, and let the compiler take care of browser compatibility
+- Mix and match SASS, LESS and regular CSS - without conflicts!
+- CSS modules - your classes are hashed automatically, to avoid namespace clashes
+- Compatible with Foundation, Bootstrap, Material and more. Simply configure via a `.global.(css|less|s(c|a)ss)` import to preserve class names
 * Hot reloading + sourcemaps in development
-* Local modules by default; `.global.(css|less|s(c|a)ss)` will preserve classnames
-* Automatic minification, autoprefixing and optimistation
+- Creates a single `assets/css/styles.css` file (`assets/css/styles.[contenthash].css` in production)
 * Easy referencing via SSR at `output.client.mainCss`
 
 **TODO**
