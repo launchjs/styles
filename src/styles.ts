@@ -83,7 +83,6 @@ export default class Styles implements ILaunchPlugin {
       postcss: {
         plugins() {
           return [
-            require("postcss-nested")(),
             require("postcss-cssnext")({
               features: {
                 autoprefixer: false,
