@@ -5,16 +5,18 @@
 
 /* NPM */
 import App from "@launch/app";
+import EntryPlugin from "@launch/entry";
 
 /* Local */
 import Styles from "../index";
 
 // ----------------------------------------------------------------------------
 
-const styles = new Styles();
-
 void new App()
-  .clientEntry("__helpers__/clientEntryReact.tsx")
-  .serverEntry("__helpers__/serverEntryReact.tsx")
-  .plugin(styles)
+  .plugin(
+    new Styles(),
+    new EntryPlugin()
+      .client(require.resolve("./__helpers__/clientEntryReact.tsx"))
+      .server(require.resolve("./__helpers__/serverEntryReact.tsx")),
+  )
   .launch();

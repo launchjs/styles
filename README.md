@@ -31,10 +31,13 @@ import App from "@launch/app";
 import Styles from "@launch/styles";
 
 void new App()
-  .serverEntry("someServerEntry.tsx");
-  .clientEntry("someClientEntry.tsx");
-  .plugin(new Styles()) // <-- add the plugin here
-  .launch()
+  .plugin(
+    new Styles(), // <-- add the plugin here
+    new EntryPlugin()
+      .client(require.resolve("./someClientEntry.tsx"))
+      .server(require.resolve("./someServerEntry.tsx")),
+  )
+  .launch();
 ```
 
 In any of your app files, you can then import CSS/Sass/Less and use as normal:
@@ -53,7 +56,7 @@ export default () => (
 
 ## What this preset does
 
-It lets you handle stylesheet files universally. Specific details for each environment are below:
+It lets you import stylesheet files universally. Specific details for each environment are below:
 
 **In all environments:**
 
